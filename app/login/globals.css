@@ -1,0 +1,14 @@
+.btn-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+.full-screen-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #CEE3FC;
+    position: absolute ;
+    top: 0;
+    left: 0;
+}
