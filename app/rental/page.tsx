@@ -127,12 +127,7 @@ const Rental = () => {
                                     {rental.status}
                                 </div>
 
-                                <button
-                                    className="bg-gray-200 text-gray-500 w-full px-4 py-2 rounded-lg hover:bg-gray-300 transition duration-300 mt-4 text-center"
-                                    onClick={() => router.push(`/rental/${rental.id}`)}
-                                >
-                                    ดูรายละเอียด
-                                </button>
+                               
 
                             </div>
 

@@ -53,7 +53,7 @@ const signin = () => {
 
             if (response.status === 200) {
                 alert(data.message); // แสดงข้อความสมัครสมาชิกสำเร็จ
-                router.push("/signin"); // เปลี่ยนเส้นทางไปที่หน้าล็อกอิน
+                router.push("/"); 
             } else {
                 setError(data.message); // แสดงข้อความผิดพลาด
             }

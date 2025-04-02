@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
     FiTrash2,
     FiPlus,
@@ -25,6 +25,7 @@ const CarManagementPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState("all");
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
 
     // ตั้งค่า base URL สำหรับรูปภาพ
     const baseImageUrl = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || '/uploads';
@@ -61,7 +62,7 @@ const CarManagementPage: React.FC = () => {
         };
 
         fetchCars();
-    }, [baseImageUrl]);
+    }, []);
 
     const handleDelete = async (LPlate: string) => {
         if (!confirm(`คุณแน่ใจว่าต้องการลบรถทะเบียน ${LPlate} ใช่หรือไม่?`)) {
@@ -248,7 +249,7 @@ const CarManagementPage: React.FC = () => {
                                         <FiImage className="md:hidden mr-2 text-gray-400 flex-shrink-0" />
                                         {car.carImg ? (
                                             <div className="relative w-10 h-10 rounded-md overflow-hidden border border-gray-200">
-                                                <Image
+                                                <img
                                                     src={car.carImgUrl}
                                                     alt={`${car.brand} ${car.model}`}
                                                     className="w-full h-full object-cover"

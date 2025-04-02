@@ -20,7 +20,7 @@ export async function POST(req) {  // กำหนดประเภทของ
       if (existingUserName.length > 0) {
           return NextResponse.json({ message: "⚠️ ชื่อผู้ใช้งานนี้มีในระบบแล้ว" }, { status: 400 });
       }
-
+  
       
       const existingPhoneQuery = `
           SELECT * FROM Customer WHERE phoneNumber = ? 
@@ -30,6 +30,12 @@ export async function POST(req) {  // กำหนดประเภทของ
       if (existingPhone.length > 0) {
           return NextResponse.json({ message: "⚠️ หมายเลขโทรศัพท์นี้มีในระบบแล้ว" }, { status: 400 });
       }
+      // ✅ ตรวจสอบว่าเบอร์โทรศัพท์เป็นตัวเลข 10 หลักเท่านั้น
+      const phoneRegex = /^[0-9]{9,10}$/;
+      if (!phoneRegex.test(phone)) {
+          return NextResponse.json({ message: "⚠️ กรุณากรอกหมายเลขโทรศัพท์ให้ถูกต้อง" }, { status: 400 });
+      }
+
 
       // เข้ารหัสรหัสผ่านก่อนเก็บในฐานข้อมูล
       const hashedPassword = await bcrypt.hash(password, 10);  // 10 คือจำนวน salt rounds

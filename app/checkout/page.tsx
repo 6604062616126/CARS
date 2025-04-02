@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { FiUpload, FiX } from "react-icons/fi";
-import Image from "next/image";
 
 export default function PaymentForm() {
   const [formData, setFormData] = useState({
@@ -101,7 +100,7 @@ export default function PaymentForm() {
 
             <div className="space-y-6">
               <div className="w-full h-48 bg-gray-100 rounded-xl overflow-hidden mb-4">
-                <Image src="/benz1.png" alt="Car" className="w-full h-full object-cover" />
+                <img src="/benz1.png" alt="Car" className="w-full h-full object-cover" />
               </div>
 
               <div>
@@ -117,7 +116,7 @@ export default function PaymentForm() {
 
               <div className="flex flex-col items-center pt-4">
                 <div className="bg-white p-3 rounded-lg border border-gray-200 mb-3">
-                  <Image src="/QR.png" alt="QR Code" />
+                  <img src="/QR.png" alt="QR Code" />
                 </div>
                 <p className="text-xs text-red-500 font-medium">* ชำระเงินภายใน 24 ชั่วโมง</p>
               </div>
@@ -126,7 +125,7 @@ export default function PaymentForm() {
                 <label className="relative w-full h-20 bg-gray-50 border-2 border-dashed border-gray-300 hover:border-blue-400 rounded-xl flex flex-col items-center justify-center cursor-pointer transition-all duration-200 group">
                   {file ? (
                     <div className="relative w-full h-full">
-                      <Image
+                      <img
                         src={file}
                         alt="Preview"
                         className="w-full h-full object-cover rounded-xl"

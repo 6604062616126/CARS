@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaChevronLeft, FaSearch, FaEye, FaCheck, FaTimes } from "react-icons/fa";
+
 
 interface Rental {
     id: string;
